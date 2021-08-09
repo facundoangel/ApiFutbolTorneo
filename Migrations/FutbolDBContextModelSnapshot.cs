@@ -38,6 +38,20 @@ namespace ApiFutbolTorneo.Migrations
                         .HasFilter("[equipo] IS NOT NULL");
 
                     b.ToTable("FutbolDBEquipos");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            color = "celeste",
+                            equipo = "arsenal"
+                        },
+                        new
+                        {
+                            id = 2,
+                            color = "rojo",
+                            equipo = "independiente"
+                        });
                 });
 
             modelBuilder.Entity("ApiFutbolTorneo.Entities.FutbolDBJugadoras", b =>

@@ -36,6 +36,16 @@ namespace ApiFutbolTorneo.Migrations
                     table.PrimaryKey("PK_FutbolDBJugadoras", x => x.id);
                 });
 
+            migrationBuilder.InsertData(
+                table: "FutbolDBEquipos",
+                columns: new[] { "id", "color", "equipo" },
+                values: new object[] { 1, "celeste", "arsenal" });
+
+            migrationBuilder.InsertData(
+                table: "FutbolDBEquipos",
+                columns: new[] { "id", "color", "equipo" },
+                values: new object[] { 2, "rojo", "independiente" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_FutbolDBEquipos_equipo",
                 table: "FutbolDBEquipos",
