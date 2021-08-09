@@ -42,6 +42,20 @@ namespace ApiFutbolTorneo.Controllers
             return futbolDBJugadoras;
         }
 
+        // GET: api/FutbolDBJugadoras/equipo
+        [HttpGet("/multiple/{equipo}")]
+        public async Task<List<FutbolDBJugadoras>> GetFutbolDBJugadoras(string equipo)
+        {
+            var futbolDBJugadoras = await _context.FutbolDBJugadoras.Where(b => b.equipojugando.Contains(equipo)).ToListAsync();
+
+            if (futbolDBJugadoras == null)
+            {
+                new ArgumentException("No existe jugadoras con ese equipo");
+            }
+
+            return futbolDBJugadoras;
+        }
+
         // PUT: api/FutbolDBJugadoras/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
