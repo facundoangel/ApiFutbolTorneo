@@ -15,10 +15,10 @@ namespace ApiFutbolTorneo.Entities
         //DEFINO CAMPOS Y AGREGO SUS VALIDACIONES
         [Key]
         public int id { get; set; }
-        [RegularExpression("^[a-zA-Z]{1,25}$",
+        [RegularExpression("^[a-zA-Z][a-zA-Z ]{3,25}$",
             ErrorMessage ="Solo se permiten letras en este campo y debe contener entre 1 y 25 caracteres")]
         public string equipo { get; set; }
-        [RegularExpression("^[a-zA-Z]{1,25}$",
+        [RegularExpression("^[a-zA-Z][a-zA-Z ]{3,25}$",
             ErrorMessage = "Solo se permiten letras en este campo y debe contener entre 1 y 25 caracteres")]
         public string color { get; set; }
     }

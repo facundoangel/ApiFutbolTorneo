@@ -42,8 +42,8 @@ namespace ApiFutbolTorneo.Controllers
             return futbolDBJugadoras;
         }
 
-        // GET: api/FutbolDBJugadoras/equipo
-        [HttpGet("/multiple/{equipo}")]
+        // GET: api/FutbolDBJugadoras/multiple/equipo
+        [HttpGet("multiple/{equipo}")]
         public async Task<List<FutbolDBJugadoras>> GetFutbolDBJugadoras(string equipo)
         {
             var futbolDBJugadoras = await _context.FutbolDBJugadoras.Where(b => b.equipojugando.Contains(equipo)).ToListAsync();

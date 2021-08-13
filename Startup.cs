@@ -29,8 +29,10 @@ namespace ApiFutbolTorneo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            //CONFIGURO OPCIONES CORS PARA PERMITIR LAS PETICIONES
+            services.AddCors();
             services.AddControllers();
+            //AGREGO CONTEXTO BASE DE DATOS
             services.AddDbContext<FutbolDBContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("Database"))
             );
@@ -43,6 +45,13 @@ namespace ApiFutbolTorneo
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //CONFIGURO OPCIONES CORS
+            app.UseCors(option =>
+           {
+               option.WithOrigins("*");
+               option.AllowAnyMethod();
+               option.AllowAnyHeader();
+           });
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
