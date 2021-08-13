@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiFutbolTorneo.Migrations
 {
     [DbContext(typeof(FutbolDBContext))]
-    [Migration("20210809035009_initial")]
+    [Migration("20210813214020_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
